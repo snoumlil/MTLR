@@ -5,7 +5,7 @@ nbPatient=800
 nbTimePoints=50
 c1=1000
 c2=1
-filename="class.csv"
+filename="data.csv"
 X=standardize(covariates(filename))
 surv=readSurv(filename)
 
