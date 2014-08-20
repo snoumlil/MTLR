@@ -16,7 +16,7 @@ from scipy import stats
 #Write the weights: np.savetxt("lol.csv",a,delimiter=" ")
 # read the weights : np.loadtxt("lol.csv")
 
-# valide
+
 # Input  filename : the name of the file
 # Output  nd array of covariates
 def covariates(fileName):
@@ -35,7 +35,7 @@ def covariates(fileName):
 	return np.array(liste)
 
 
-#Valide
+
 # Compute the zcore of each column
 def standardize(covariates):
 	a=covariates.transpose()
@@ -45,14 +45,14 @@ def standardize(covariates):
 
 
 
-#Valide
+
 # Input : filename : the name of the csv file 
 # Output : An array of survival Times	
 def readSurv(fileName):
 	return np.genfromtxt(fileName,usecols=(0),skip_header=1,delimiter=',',dtype=None)
 
 
-# Valide
+
 # Inputs: -survivalTimes : Array of survival times 
 #         - nbPoints : number of points we want 
 # Output: a nbPoints lentght array from the 1st to the 100 th percentile of survival times.
@@ -63,14 +63,14 @@ def timePoints(survivalTimes,nbPoints):
 		time.append((np.percentile(survivalTimes,i)))
 	return array(time)
 
-#Valide
+
 # Inputs :  - survTime : survival Time 
 #           - time : array of timePoints
 # Outputs:  a binary sequence of survival time
 def encode(survTime,timePoints):
 	return (timePoints>=survTime).astype(int)
 	
-#valide
+
 # Compute the binary sequence for all survival times
 def computeY(survivalTimes,timePoints):
 	nbTime=shape(timePoints)[0]
@@ -88,7 +88,7 @@ def fscore(Theta,b,xi,k):
 	maxMonth=shape(Theta)[0]
 	return (Theta[k+1:maxMonth]*xi).sum()+b[k+1:maxMonth].sum()
 
-# valide
+
 def tic():
     #Homemade version of matlab tic and toc functions
     import time
@@ -102,7 +102,7 @@ def toc():
     else:
         print "Toc: start time not set"
 
-#Valide
+
 # Inputs weigths=[Theta b]
 #        X : array of covariates
 #        nbTime,nVar,nPatient
@@ -136,7 +136,7 @@ def cost(Weights,X,Y,c1,c2,nbTime,nVar,nPatient):
 
 
 
-# Valide
+
 # Compute the likelihood of a patient
 def likelihood(theta,b,x,ti,time):
 	y=encode(ti,time)
@@ -149,7 +149,7 @@ def likelihood(theta,b,x,ti,time):
 		den=den+exp(fscore(theta,b,x,k))	
         return (exp(num)/den)
 
-#Valide
+
 # Compute the likelihood for a censored patient
 def likelihoodCensored(topt,b,x,ti,timePoints):
         [nbTime,nVar]=shape(topt)
@@ -161,7 +161,7 @@ def likelihoodCensored(topt,b,x,ti,timePoints):
                 den=den+exp(fscore(topt,b,x,s))
         return (num/den)
        
-#Valide
+
 # Input array : An array of time points ; value : a value
 # Output  the index of closest value which is in  the array          	
 def findNearest(array,value):
@@ -183,7 +183,7 @@ def cost2(Weights,X,surv,time,nbTime,nVar,nPatient):
 
 
 
-# Valide
+
 def absErrorAE(predictedTime,survivalTime):
 	return abs(bf.log(predictedTime)-bf.log(survivalTime))
 
@@ -194,7 +194,7 @@ def l(p,t):
 def l2(p,t):
 	return abs(p-t)
 
-#Valide
+
 # predTime
 def predTime(topt,b,x,timePoints):
 	nbTime=shape(timePoints)[0]
@@ -207,7 +207,7 @@ def predTime(topt,b,x,timePoints):
 	return timePoints[res.argmin()]
 
 
-#Valide
+
 def deathTimes(topt,b,X,timePoints):
 	l=[]	
 	for i in xrange(0,shape(X)[0]):
@@ -217,7 +217,7 @@ def deathTimes(topt,b,X,timePoints):
 
      
 
-#Valide
+
 # error
 def rateError(surv,death,tolerence):
 	num=0
@@ -283,7 +283,7 @@ def predict(X,surv,opt,nbPatient,nbTimePoints):
 		print str(surv[i]) +"   "+ str(death[i])
 	return death
 
-#Valide
+
 # Plot the survival
 def plotSurvival(topt,b,X,Y,NbPatient,maxMonth,time):
 	nbTime=shape(topt)[0]
