@@ -1,8 +1,10 @@
 from mtlr import *
 
 #loading the data
+""" The first column should refer to survival times, the others to the covariates"""
 filename="data.csv"
 
+""" We choose only 10 patient  to make the computing quick for this exemple"""
 X=standardize(covariates(filename))[0:10]
 survivalTimes=readSurv(filename)[0:10]
 
