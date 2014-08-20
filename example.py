@@ -24,7 +24,7 @@ death=predict(X,surv,opt,nbPatient,nbTimePoints,1)
 tolerence=3 # difference tolerated between the true and real time
 computeError(X,surv,opt,nbPatient,nbTimePoints,tolerence)
 
-write(opt,"topt.csv")# 500 par 30
+
 
 
 # Test 
