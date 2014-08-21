@@ -13,8 +13,8 @@ import timeit
 from scipy import stats
 
 
-#Write the weights: np.savetxt("lol.csv",a,delimiter=" ")
-# read the weights : np.loadtxt("lol.csv")
+#Write the weights: np.savetxt("file.csv",a,delimiter=" ")
+# read the weights : np.loadtxt("file.csv")
 
 
 def covariates(fileName):
