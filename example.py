@@ -16,7 +16,7 @@ Xclass=X[0:2000]
 survClass=surv[0:2000]
 
 
-opt=trainMtlr(X,surv,nbPatient,nbTimePoints,c1,c2)
+opt=trainMtlr(Xclass,survClass,nbPatient,nbTimePoints,c1,c2)
 write(opt,"topt.csv")# 800 par 40
 
 death=predict(X,surv,opt,nbPatient,nbTimePoints,1)
