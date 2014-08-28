@@ -1,4 +1,4 @@
-from module import *
+from mtlr import *
 
 #Parameters
 nbPatient=800
