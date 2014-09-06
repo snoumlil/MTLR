@@ -32,7 +32,7 @@ def covariates(fileName):
 	for i in xrange(0,shape(liste)[0]):
 		for j in xrange(0,shape(liste[0])[0]):
 			liste[i][j]=float(liste[i][j])
-	fichier.close()
+	fichier.close() 
 	return np.array(liste)
 
 
